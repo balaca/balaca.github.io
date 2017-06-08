@@ -1,0 +1,705 @@
+
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.20.7">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Statistics</title>
+    <meta name="author" content="Balachandar Arumguam">
+    <meta name="keywords" content=", Balachandar Blog, Balachandar&#39;s Blog, Balachandar, Data Science, Data Blog, Statistics, Machine Learning, Linear Algebra, Data Visualization, Data Analytics, Data Mining, R, Python">
+
+    <link rel="icon" href="https://balaca.github.io/favicon.png">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://balaca.github.io/tags/statistics/index.xml">
+    
+
+    
+    <meta name="description" content="Aloha! I&#39;m Balachandar from India. Here I write about Statistics, Data Science, Visualization, Python, R, Machine Learning.">
+    <meta property="og:description" content="Aloha! I&#39;m Balachandar from India. Here I write about Statistics, Data Science, Visualization, Python, R, Machine Learning.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Statistics">
+    <meta property="og:url" content="/tags/statistics/">
+    <meta property="og:site_name" content="Balachandar Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Balachandar Blog">
+    <meta name="twitter:description" content="Aloha! I&#39;m Balachandar from India. Here I write about Statistics, Data Science, Visualization, Python, R, Machine Learning.">
+    
+      <meta name="twitter:creator" content="@bala_io">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://balaca.github.io/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67299773-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="2">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://balaca.github.io/">Balachandar Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://balaca.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="2">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://balaca.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Balachandar Arumguam</h4>
+        
+          <h5 class="sidebar-profile-bio">Explorer. Data Geek</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/balaca" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://in.linkedin.com/in/balachandararumugam" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/bala_io" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="2"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://balaca.github.io/2017/05/manipur-results/">
+          Manipur 2017 Election - A Data Story
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-05-21T00:00:00Z">
+      
+  May 21, 2017
+
+    </time>
+  
+  
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        
+        This post looks into Manipur 2017 Election results.
+      
+        <br>
+        <a href="https://balaca.github.io/2017/05/manipur-results/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://balaca.github.io/2017/05/manipur-results/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://balaca.github.io/img/manipur.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://balaca.github.io/2017/05/goa-results/">
+          Goa 2017 Election  - A Data Story
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-05-20T00:00:00Z">
+      
+  May 20, 2017
+
+    </time>
+  
+  
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        
+        This post looks into Goa 2017 Election results.
+      
+        <br>
+        <a href="https://balaca.github.io/2017/05/goa-results/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://balaca.github.io/2017/05/goa-results/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://balaca.github.io/img/goa.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://balaca.github.io/2017/05/punjab-results/">
+          Punjab 2017 Election - A Data Story
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-05-18T00:00:00Z">
+      
+  May 18, 2017
+
+    </time>
+  
+  
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        
+        This post looks into Punjab 2017 Election results.
+      
+        <br>
+        <a href="https://balaca.github.io/2017/05/punjab-results/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://balaca.github.io/2017/05/punjab-results/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://balaca.github.io/img/punjab.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://balaca.github.io/2017/05/up-results/">
+          Uttar Pradesh 2017 Election - A Data Story
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-05-18T00:00:00Z">
+      
+  May 18, 2017
+
+    </time>
+  
+  
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        
+        This post looks into Uttar Pradesh 2017 Election results.
+      
+        <br>
+        <a href="https://balaca.github.io/2017/05/up-results/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://balaca.github.io/2017/05/up-results/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://balaca.github.io/img/up.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+              
+  
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/">
+          TamilNadu 2016 Election - A Data Story
+        </a>
+      </h1>
+      <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-05-15T00:00:00Z">
+      
+  May 15, 2017
+
+    </time>
+  
+  
+
+</div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody">
+      <p>
+        
+        This post takes an in-depth look into TamilNadu 2016 Election results.
+      
+        <br>
+        <a href="https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/" class="postShorten-excerpt_link link">Continue reading</a>
+        
+      </p>
+    </div>
+  </div>
+  
+    <a href="https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/">
+      <div class="postShorten-thumbnailimg">
+        <img alt="" itemprop="image" src="https://balaca.github.io/img/bigtemple.jpg"/>
+      </div>
+    </a>
+  
+</article>
+
+            
+            
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 Balachandar Arumguam. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Balachandar Arumguam</h4>
+    
+      <div id="about-card-bio">Explorer. Data Geek</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Bangalore, India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/06/twitter-graph/">
+                <h3 class="media-heading">Twitter and The Social Graph</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">When it comes to discovering or consuming real-time content, Twitter is the place to be; be it sending out ‘Tweets’ real-time, or discovering latest online ‘Trends’ anywhere, or ability to begin a ‘conversation’ with anyone, Twitter does it all. In fact, Twitter Management wrote this in their letter to shareholders last year.
+We’re focused now on what Twitter does best: live.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/manipur-results/">
+                <h3 class="media-heading">Manipur 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/goa-results/">
+                <h3 class="media-heading">Goa 2017 Election  - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were ~ 300 Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were ~ 300 Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/punjab-results/">
+                <h3 class="media-heading">Punjab 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/up-results/">
+                <h3 class="media-heading">Uttar Pradesh 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 1000+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/">
+                <h3 class="media-heading">TamilNadu 2016 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ever since CN Annadurai of DMK uprooted INC, the sole dominant party then in 1967 elections, two dominant parties DMK and AIADMK had been alternating in throne for the most time in TamilNadu politics. One exception was December 1984 election when MG Ramachandran of AIADMK, incumbent Chief Minister then, won an absolute majority with 54% vote-share and retained his Chief Minister seat.
+Fast forward 30 years, last May, we witnessed another such rarity when incumbent Chief Minister J Jayalalitha held onto her seat despite the anti-incumbency wave (partly from mishandling of floods), new parties mushrooming in the State and no popular party in AIADMK coaliation.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/post/">
+                <h3 class="media-heading">Posts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         7 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://balaca.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://balaca.github.io/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+
+
+
+    
+  </body>
+</html>
+
