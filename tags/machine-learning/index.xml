@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Balachandar Blog</title>
-    <link>/tags/machine-learning/</link>
+    <link>https://balaca.github.io/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://balaca.github.io/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Twitter and The Social Graph</title>
-      <link>/2017/06/twitter-graph/</link>
+      <link>https://balaca.github.io/2017/06/twitter-graph/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/twitter-graph/</guid>
+      <guid>https://balaca.github.io/2017/06/twitter-graph/</guid>
       <description>When it comes to discovering or consuming real-time content, Twitter is the place to be; be it sending out ‘Tweets’ real-time, or discovering latest online ‘Trends’ anywhere, or ability to begin a ‘conversation’ with anyone, Twitter does it all. In fact, Twitter Management wrote this in their letter to shareholders last year.
 We’re focused now on what Twitter does best: live.</description>
     </item>
