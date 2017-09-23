@@ -2,120 +2,120 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Balachandar Blog</title>
-    <link>https://balaca.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 02 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://balaca.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Clustering</title>
-      <link>https://balaca.github.io/tags/clustering/</link>
+      <link>/tags/clustering/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/clustering/</guid>
+      <guid>/tags/clustering/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Datascience</title>
-      <link>https://balaca.github.io/tags/datascience/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/datascience/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/datascience/</guid>
+      <guid>/tags/datascience/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Election</title>
-      <link>https://balaca.github.io/tags/election/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/election/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/election/</guid>
+      <guid>/tags/election/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Geodata</title>
-      <link>https://balaca.github.io/tags/geodata/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/geodata/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/geodata/</guid>
+      <guid>/tags/geodata/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Graphics</title>
-      <link>https://balaca.github.io/tags/graphics/</link>
+      <link>/tags/graphics/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/graphics/</guid>
+      <guid>/tags/graphics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linear Algebra</title>
-      <link>https://balaca.github.io/tags/linear-algebra/</link>
+      <link>/tags/linear-algebra/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/linear-algebra/</guid>
+      <guid>/tags/linear-algebra/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://balaca.github.io/tags/machine-learning/</link>
+      <link>/tags/machine-learning/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/machine-learning/</guid>
+      <guid>/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Network Analysis</title>
-      <link>https://balaca.github.io/tags/network-analysis/</link>
+      <title>Social Network Analysis</title>
+      <link>/tags/social-network-analysis/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/network-analysis/</guid>
+      <guid>/tags/social-network-analysis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Statistics</title>
-      <link>https://balaca.github.io/tags/statistics/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/statistics/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/statistics/</guid>
+      <guid>/tags/statistics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tamilnadu</title>
-      <link>https://balaca.github.io/tags/tamilnadu/</link>
+      <link>/tags/tamilnadu/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/tamilnadu/</guid>
+      <guid>/tags/tamilnadu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Twitter</title>
-      <link>https://balaca.github.io/tags/twitter/</link>
+      <link>/tags/twitter/</link>
       <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/twitter/</guid>
+      <guid>/tags/twitter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visualization</title>
-      <link>https://balaca.github.io/tags/visualization/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <link>/tags/visualization/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/tags/visualization/</guid>
+      <guid>/tags/visualization/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tamilnadu on Balachandar Blog</title>
-    <link>https://balaca.github.io/tags/tamilnadu/</link>
+    <link>/tags/tamilnadu/</link>
     <description>Recent content in Tamilnadu on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://balaca.github.io/tags/tamilnadu/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/tamilnadu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TamilNadu 2016 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/</link>
+      <link>/2017/05/tamilnadu-2016-election---a-data-story/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/</guid>
+      <guid>/2017/05/tamilnadu-2016-election---a-data-story/</guid>
       <description>Ever since CN Annadurai of DMK uprooted INC, the sole dominant party then in 1967 elections, two dominant parties DMK and AIADMK had been alternating in throne for the most time in TamilNadu politics. One exception was December 1984 election when MG Ramachandran of AIADMK, incumbent Chief Minister then, won an absolute majority with 54% vote-share and retained his Chief Minister seat.
 Fast forward 30 years, last May, we witnessed another such rarity when incumbent Chief Minister J Jayalalitha held onto her seat despite the anti-incumbency wave (partly from mishandling of floods), new parties mushrooming in the State and no popular party in AIADMK coaliation.</description>
     </item>

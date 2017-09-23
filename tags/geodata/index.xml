@@ -2,21 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Geodata on Balachandar Blog</title>
-    <link>https://balaca.github.io/tags/geodata/</link>
+    <link>/tags/geodata/</link>
     <description>Recent content in Geodata on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://balaca.github.io/tags/geodata/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/geodata/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Karnataka 2013 Election - A Data Story</title>
+      <link>/2017/08/ka-results/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/08/ka-results/</guid>
+      <description>Most Popular PartiesVote-Share of Popular PartiesNumber of Constituencies Won and LostCandidates who saved their depositsCandidate who doesn’t get more than one-sixth of votes polled in Constituency loses his deposit.
+Histogram of Vote-sharesSmoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonSmoothened histogram after normalizing for difference in number of seats won.</description>
+    </item>
+    
+    <item>
       <title>Uttarakhand 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/06/uk-results/</link>
+      <link>/2017/06/uk-results/</link>
       <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/06/uk-results/</guid>
+      <guid>/2017/06/uk-results/</guid>
       <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 200+ Independent candidates contesting across constituencies
 Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
 Note: There were 200+ Independent candidates contesting across constituencies
@@ -25,10 +36,10 @@ Note: There were 200+ Independent candidates contesting across constituencies
     
     <item>
       <title>Manipur 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/manipur-results/</link>
+      <link>/2017/05/manipur-results/</link>
       <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/manipur-results/</guid>
+      <guid>/2017/05/manipur-results/</guid>
       <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
 Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
 Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
@@ -36,10 +47,10 @@ Note: There were 200+ Independent candidates contesting across constituencies
     
     <item>
       <title>Goa 2017 Election  - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/goa-results/</link>
+      <link>/2017/05/goa-results/</link>
       <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/goa-results/</guid>
+      <guid>/2017/05/goa-results/</guid>
       <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were ~ 300 Independent candidates contesting across constituencies
 Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
 Note: There were ~ 300 Independent candidates contesting across constituencies
@@ -48,10 +59,10 @@ Note: There were ~ 300 Independent candidates contesting across constituencies
     
     <item>
       <title>Punjab 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/punjab-results/</link>
+      <link>/2017/05/punjab-results/</link>
       <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/punjab-results/</guid>
+      <guid>/2017/05/punjab-results/</guid>
       <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
 Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
 Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
@@ -59,10 +70,10 @@ Note: There were ~ 300 Independent candidates contesting across constituencies
     
     <item>
       <title>Uttar Pradesh 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/up-results/</link>
+      <link>/2017/05/up-results/</link>
       <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/up-results/</guid>
+      <guid>/2017/05/up-results/</guid>
       <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
 Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
 Note: There were 1000+ Independent candidates contesting across constituencies
@@ -71,10 +82,10 @@ Note: There were 1000+ Independent candidates contesting across constituencies
     
     <item>
       <title>TamilNadu 2016 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/</link>
+      <link>/2017/05/tamilnadu-2016-election---a-data-story/</link>
       <pubDate>Mon, 15 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/</guid>
+      <guid>/2017/05/tamilnadu-2016-election---a-data-story/</guid>
       <description>Ever since CN Annadurai of DMK uprooted INC, the sole dominant party then in 1967 elections, two dominant parties DMK and AIADMK had been alternating in throne for the most time in TamilNadu politics. One exception was December 1984 election when MG Ramachandran of AIADMK, incumbent Chief Minister then, won an absolute majority with 54% vote-share and retained his Chief Minister seat.
 Fast forward 30 years, last May, we witnessed another such rarity when incumbent Chief Minister J Jayalalitha held onto her seat despite the anti-incumbency wave (partly from mishandling of floods), new parties mushrooming in the State and no popular party in AIADMK coaliation.</description>
     </item>
