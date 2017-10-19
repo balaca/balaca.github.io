@@ -74,10 +74,7 @@ Note: There were ~ 300 Independent candidates contesting across constituencies
       <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://balaca.github.io/2017/05/up-results/</guid>
-      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
-Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
-Note: There were 1000+ Independent candidates contesting across constituencies
-Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+      <description>## Warning: package &amp;#39;bindrcpp&amp;#39; was built under R version 3.4.1## Warning in mutate_impl(.data, dots): Unequal factor levels: coercing to## character## Warning in mutate_impl(.data, dots): binding character and factor vector,## coercing into character vector## Warning in mutate_impl(.data, dots): binding character and factor vector,## coercing into character vector## Warning in mutate_impl(.data, dots): binding character and factor vector,## coercing into character vector## Warning in mutate_impl(.</description>
     </item>
     
     <item>
