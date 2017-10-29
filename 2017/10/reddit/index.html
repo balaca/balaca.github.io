@@ -1,0 +1,849 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.21">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Reddit top domains:  favorite news sources of redditors</title>
+    <meta name="author" content="Balachandar Arumguam">
+    <meta name="keywords" content=", Balachandar Blog, Balachandar&#39;s Blog, Balachandar, Data Science, Data Blog, Statistics, Machine Learning, Linear Algebra, Data Visualization, Data Analytics, Data Mining, R, Python">
+
+    <link rel="icon" href="https://balaca.github.io/favicon.ico">
+    
+
+    
+    <meta name="description" content="This post looks into top news-sources preferred by redditors across subreddits">
+    <meta property="og:description" content="This post looks into top news-sources preferred by redditors across subreddits">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Reddit top domains:  favorite news sources of redditors">
+    <meta property="og:url" content="/2017/10/reddit/">
+    <meta property="og:site_name" content="Balachandar Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Balachandar Blog">
+    <meta name="twitter:description" content="This post looks into top news-sources preferred by redditors across subreddits">
+    
+      <meta name="twitter:creator" content="@bala_io">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=640">
+    
+
+    
+      <meta property="og:image" content="https://balaca.github.io/img/reddit.jpg">
+    
+    
+      <meta property="og:image" content="https://balaca.github.io/img/reddit.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://balaca.github.io/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67299773-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://balaca.github.io/">Balachandar Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://balaca.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://balaca.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Balachandar Arumguam</h4>
+        
+          <h5 class="sidebar-profile-bio">Explorer. Data Geek</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/balaca" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://in.linkedin.com/in/balachandararumugam" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/bala_io" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/reddit.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Reddit top domains:  favorite news sources of redditors
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-10-29T00:00:00Z">
+      
+  October 29, 2017
+
+    </time>
+  
+  
+
+</div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Reddit is a happening place to start conversations on any topical stuff with other anons in reddit community. Understandably though, it takes some initial effort on user’s part to figure how to get going in reddit aka <em>the front page of the internet</em>.</p>
+<p>With thousands of user created communities out there to pick from (called <em>subreddits</em> in Reddit lingo), a new user will likely be at loss wondering how to pick the communities relevant to him or figure what sort of content gets discussed in communities that look interesting.</p>
+<p>In this post, I seek to explore popular subreddits in news-space across world and later the popular ones in Indian news-space. In the consequent post, I’ll talk about personalized subreddit recommendations user-wise - as identified using patterns generalized from reddit universe of current users’ posts + comments behavior across subreddits. In both posts, I use <em>Google BigQuery</em> as a source for <a href="http://vita.had.co.nz/papers/tidy-data.html">tidy dataset</a> and also as a powerful cloud-based <em>Compute</em> tool.</p>
+<p>To construct queries and shape overall data-story, I have adapted query construct from blog by <a href="https://medium.com/@hoffa">Felipe Hoffa, ‘Big Query’ Dev Advocate at Google</a>. The clusters of subreddits handpicked for analysis below, are as identified from mining of post + comments activity of reddit users. The source dataset pertains to reddit user activity in the month of <strong>Sep-2017</strong>.</p>
+<p>Note: You can access any of subreddits below by adding suffix /r/<subreddit-name> to reddit.com. E.g. <strong>/r/politics</strong> subreddit is to be accessed as <a href="www.reddit.com/r/politics" class="uri">www.reddit.com/r/politics</a></p>
+<hr />
+<div id="rpolitics-rnews-rworldnews-rinthenews" class="section level4">
+<h4>/r/politics + /r/news + /r/worldnews + /r/inthenews</h4>
+<div class="figure"><span id="fig:unnamed-chunk-4"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-4-1.png" alt="  Posts with score &gt; 25, Domains with &gt; 100 posts" width="1152" />
+<p class="caption">
+Figure 1:  Posts with score &gt; 25, Domains with &gt; 100 posts
+</p>
+</div>
+<hr />
+</div>
+<div id="rthe_donald-rmvis-rconspiracy-rmgtow-runcensorednews-rconservative" class="section level4">
+<h4>/r/The_Donald + /r/MVIS + /r/conspiracy + /r/MGTOW + /r/uncensorednews +/r/Conservative</h4>
+<div class="figure"><span id="fig:unnamed-chunk-6"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-6-1.png" alt="  Posts with score &gt; 25, Domains with &gt; 100 posts" width="1152" />
+<p class="caption">
+Figure 2:  Posts with score &gt; 25, Domains with &gt; 100 posts
+</p>
+</div>
+<hr />
+</div>
+<div id="rindia-rindianews-rindiaspeaks-rbakchodi" class="section level4">
+<h4>/r/india + /r/indianews + /r/IndiaSpeaks + /r/bakchodi</h4>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-8-1.png" alt="  Posts with score &gt; 10, Domains with &gt; 20 posts" width="1152" />
+<p class="caption">
+Figure 3:  Posts with score &gt; 10, Domains with &gt; 20 posts
+</p>
+</div>
+<hr />
+</div>
+<div id="rscience-reverythingscience-rspace-renergy" class="section level4">
+<h4>/r/science + /r/EverythingScience + /r/space + /r/energy</h4>
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-10-1.png" alt="  Posts with score &gt; 10, Domains with &gt; 15 posts" width="1152" />
+<p class="caption">
+Figure 4:  Posts with score &gt; 10, Domains with &gt; 15 posts
+</p>
+</div>
+<hr />
+</div>
+<div id="rsports-rfootball-rpremierleague-rnfl-rpatriots" class="section level4">
+<h4>/r/sports + /r/football + /r/PremierLeague + /r/nfl + /r/Patriots</h4>
+<div class="figure"><span id="fig:unnamed-chunk-12"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-12-1.png" alt="  Posts with score &gt; 10, Domains with &gt; 15 posts" width="1152" />
+<p class="caption">
+Figure 5:  Posts with score &gt; 10, Domains with &gt; 15 posts
+</p>
+</div>
+<hr />
+</div>
+<div id="top-subreddits-where-global-mainstream-media-gets-referred" class="section level4">
+<h4>Top subreddits where Global Mainstream media gets referred</h4>
+<div class="figure"><span id="fig:unnamed-chunk-14"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-14-1.png" alt="  Posts with score &gt; 25, Subreddits with &gt; 100 posts. Excl /r/politics" width="1152" />
+<p class="caption">
+Figure 6:  Posts with score &gt; 25, Subreddits with &gt; 100 posts. Excl /r/politics
+</p>
+</div>
+<hr />
+</div>
+<div id="top-subreddits-where-indian-mainstream-media-gets-referred" class="section level4">
+<h4>Top subreddits where Indian Mainstream media gets referred</h4>
+<div class="figure"><span id="fig:unnamed-chunk-16"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-16-1.png" alt="  Posts with score &gt; 10, Subreddits with &gt;10 posts. Excl /r/india" width="1152" />
+<p class="caption">
+Figure 7:  Posts with score &gt; 10, Subreddits with &gt;10 posts. Excl /r/india
+</p>
+</div>
+<hr />
+</div>
+<div id="code-preview" class="section level4">
+<h4>Code-Preview</h4>
+<pre class="r"><code>#  Query to extract relevant summary from full-dataset 
+sql &lt;- &quot;
+SELECT domain, subreddit, count_dom, COUNT(*) posts FROM (
+  SELECT id, domain, subreddit, COUNT(*) OVER(PARTITION BY domain) count_dom
+  FROM [fh-bigquery.reddit_posts.2017_09]
+  WHERE score&gt;25
+  AND domain NOT IN (
+  &#39;puu.sh&#39;, &#39;zkillboard.com&#39;, &#39;gifsound.com&#39;, &#39;youtu.be&#39;, &#39;bato.to&#39;, &#39;archive.is&#39;, &#39;archive.fo&#39;,
+  &#39;pbs.twimg.com&#39;, &#39;streamable.com&#39;, &#39;cdn.awwni.me&#39;)
+  AND NOT over_18 
+  AND subreddit IN (&#39;politics&#39;, &#39;news&#39;, &#39;worldnews&#39;, &#39;inthenews&#39;, &#39;The_Donald&#39;)
+  ) 
+WHERE count_dom&gt;100
+GROUP BY 1, 2, 3
+ORDER BY 4 DESC&quot;
+
+out_1&lt;- query_exec(sql, project = project, useLegacySql = FALSE)
+
+out_1 %&gt;% 
+  mutate(domain = reorder(domain, count_dom)) %&gt;% 
+  ggplot(mapping = aes(x = domain, y = posts, fill = subreddit)) +
+  geom_bar(stat = &quot;identity&quot;, width = .6) +
+  coord_flip() +
+  theme_economist()</code></pre>
+<p><em>Dataset for this analysis is available <a href="https://www.reddit.com/r/datasets/comments/75iz8u/reddit_september_2017_submissions_are_now/">here</a> and information on getting started with Google BigQuery <a href="https://cloud.google.com/blog/big-data/2017/01/how-to-run-a-terabyte-of-google-bigquery-queries-each-month-without-a-credit-card">here</a></em></p>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/reddit/">Reddit</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/bigquery/">BigQuery</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/big-data/">Big Data</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/social-media/">Social Media</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://balaca.github.io/2017/08/ka-results/" data-tooltip="Karnataka 2013 Election - A Data Story">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 Balachandar Arumguam. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://balaca.github.io/2017/08/ka-results/" data-tooltip="Karnataka 2013 Election - A Data Story">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbalaca.github.io%2f2017%2f10%2freddit%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Balachandar Arumguam</h4>
+    
+      <div id="about-card-bio">Explorer. Data Geek</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Bangalore, India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/10/reddit/">
+                <h3 class="media-heading">Reddit top domains:  favorite news sources of redditors</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reddit is a happening place to start conversations on any topical stuff with other anons in reddit community. Understandably though, it takes some initial effort on user’s part to figure how to get going in reddit aka the front page of the internet.
+With thousands of user created communities out there to pick from (called subreddits in Reddit lingo), a new user will likely be at loss wondering how to pick the communities relevant to him or figure what sort of content gets discussed in communities that look interesting.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/08/ka-results/">
+                <h3 class="media-heading">Karnataka 2013 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-Share of Popular PartiesNumber of Constituencies Won and LostCandidates who saved their depositsCandidate who doesn’t get more than one-sixth of votes polled in Constituency loses his deposit.
+Histogram of Vote-sharesSmoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonSmoothened histogram after normalizing for difference in number of seats won.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/06/uk-results/">
+                <h3 class="media-heading">Uttarakhand 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 200+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 200+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/06/twitter-graph/">
+                <h3 class="media-heading">Twitter and The Social Graph</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">When it comes to discovering or consuming real-time content, Twitter is the place to be; be it sending out ‘Tweets’ real-time, or discovering latest online ‘Trends’ anywhere, or ability to begin a ‘conversation’ with anyone, Twitter does it all. In fact, Twitter Management wrote this in their letter to shareholders last year.
+We’re focused now on what Twitter does best: live.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/manipur-results/">
+                <h3 class="media-heading">Manipur 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/goa-results/">
+                <h3 class="media-heading">Goa 2017 Election  - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were ~ 300 Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were ~ 300 Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/punjab-results/">
+                <h3 class="media-heading">Punjab 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/up-results/">
+                <h3 class="media-heading">Uttar Pradesh 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 1000+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/">
+                <h3 class="media-heading">TamilNadu 2016 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ever since CN Annadurai of DMK uprooted INC, the sole dominant party then in 1967 elections, two dominant parties DMK and AIADMK had been alternating in throne for the most time in TamilNadu politics. One exception was December 1984 election when MG Ramachandran of AIADMK, incumbent Chief Minister then, won an absolute majority with 54% vote-share and retained his Chief Minister seat.
+Fast forward 30 years, last May, we witnessed another such rarity when incumbent Chief Minister J Jayalalitha held onto her seat despite the anti-incumbency wave (partly from mishandling of floods), new parties mushrooming in the State and no popular party in AIADMK coaliation.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/post/">
+                <h3 class="media-heading">Posts</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         10 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://balaca.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://balaca.github.io/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/balaca.github.io\/2017\/10\/reddit\/';
+          
+            this.page.identifier = '\/2017\/10\/reddit\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'balaca-blog';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+
+    
+  </body>
+</html>
+

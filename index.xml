@@ -6,10 +6,20 @@
     <description>Recent content on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://balaca.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reddit top domains:  favorite news sources of redditors</title>
+      <link>https://balaca.github.io/2017/10/reddit/</link>
+      <pubDate>Sun, 29 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/10/reddit/</guid>
+      <description>Reddit is a happening place to start conversations on any topical stuff with other anons in reddit community. Understandably though, it takes some initial effort on user’s part to figure how to get going in reddit aka the front page of the internet.
+With thousands of user created communities out there to pick from (called subreddits in Reddit lingo), a new user will likely be at loss wondering how to pick the communities relevant to him or figure what sort of content gets discussed in communities that look interesting.</description>
+    </item>
     
     <item>
       <title>Karnataka 2013 Election - A Data Story</title>
