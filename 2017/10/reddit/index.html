@@ -237,11 +237,11 @@ ga('send', 'pageview');
               <p>Reddit is a happening space to start conversations on any topical stuff with other anons in reddit community. Understandably though, it takes some initial effort on user’s part to figure how to get going in reddit aka <em>the front page of the internet</em>.</p>
 <p>With thousands of user created communities out there to pick from (called <em>subreddits</em> in Reddit lingo), a new user will likely be at loss wondering how to pick the communities relevant to him or figure what sort of content gets discussed in communities that look interesting.</p>
 <p>In this post, I seek to explore popular subreddits in news-space across world and later the popular ones in Indian news-space. In the consequent post, I’ll talk about personalized subreddit recommendations user-wise - as identified using patterns generalized from reddit universe of current users’ posts + comments behavior across subreddits. In both posts, I use <em>Google BigQuery</em> as a source for <a href="http://vita.had.co.nz/papers/tidy-data.html">tidy dataset</a> and also as a powerful cloud-based <em>Compute</em> tool.</p>
-<p>To construct queries and shape overall data-story, I have adapted query construct from blog by <a href="https://medium.com/@hoffa">Felipe Hoffa, ‘Big Query’ Dev Advocate at Google</a>. The clusters of subreddits handpicked for analysis below, are as identified from mining of post + comments activity of reddit users. The source dataset pertains to reddit user activity in the month of <strong>Sep-2017</strong>.</p>
+<p>To construct queries and shape overall data-story, I have adapted query construct from blog by <a href="https://medium.com/@hoffa">Felipe Hoffa, Big Query Dev Advocate at Google</a>. The clusters of subreddits handpicked for analysis below, are as identified from mining of post + comments activity of reddit users. The source dataset pertains to reddit user activity in the month of <strong>Sep-2017</strong>.</p>
 <p>Note: You can access any of subreddits below by adding suffix /r/<subreddit-name> to reddit.com. E.g. <strong>/r/politics</strong> subreddit is to be accessed as <a href="https://www.reddit.com/r/politics">www.reddit.com/r/politics</a></p>
 <hr />
-<div id="rpolitics-rnews-rworldnews-rinthenews" class="section level4">
-<h4>/r/politics + /r/news + /r/worldnews + /r/inthenews</h4>
+<div id="rpolitics-rnews-rworldnews-rinthenews-rthe_donald" class="section level4">
+<h4>/r/politics + /r/news + /r/worldnews + /r/inthenews + /r/The_Donald</h4>
 <div class="figure"><span id="fig:unnamed-chunk-4"></span>
 <img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-4-1.png" alt="  Posts with score &gt; 25, Domains with &gt; 100 posts" width="1152" />
 <p class="caption">
@@ -250,8 +250,8 @@ Figure 1:  Posts with score &gt; 25, Domains with &gt; 100 posts
 </div>
 <hr />
 </div>
-<div id="rthe_donald-rmvis-rconspiracy-rmgtow-runcensorednews-rconservative" class="section level4">
-<h4>/r/The_Donald + /r/MVIS + /r/conspiracy + /r/MGTOW + /r/uncensorednews +/r/Conservative</h4>
+<div id="rthe_donald-rconspiracy-runcensorednews-rconservative" class="section level4">
+<h4>/r/The_Donald + /r/conspiracy + /r/uncensorednews +/r/Conservative</h4>
 <div class="figure"><span id="fig:unnamed-chunk-6"></span>
 <img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-6-1.png" alt="  Posts with score &gt; 25, Domains with &gt; 100 posts" width="1152" />
 <p class="caption">
@@ -270,8 +270,8 @@ Figure 3:  Posts with score &gt; 10, Domains with &gt; 20 posts
 </div>
 <hr />
 </div>
-<div id="rscience-reverythingscience-rspace-renergy" class="section level4">
-<h4>/r/science + /r/EverythingScience + /r/space + /r/energy</h4>
+<div id="rscience-reverythingscience-rspace-renergy-rfuturology-rartificial-rtechnology" class="section level4">
+<h4>/r/science + /r/EverythingScience + /r/space + /r/energy + /r/Futurology + /r/artificial + /r/Technology</h4>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-10-1.png" alt="  Posts with score &gt; 10, Domains with &gt; 15 posts" width="1152" />
 <p class="caption">
@@ -280,8 +280,8 @@ Figure 4:  Posts with score &gt; 10, Domains with &gt; 15 posts
 </div>
 <hr />
 </div>
-<div id="rsports-rfootball-rpremierleague-rnfl-rpatriots" class="section level4">
-<h4>/r/sports + /r/football + /r/PremierLeague + /r/nfl + /r/Patriots</h4>
+<div id="rcricket-rfantasyfootball-rliverpoolfc-rnba-rnfl-rsoccer" class="section level4">
+<h4>/r/Cricket + /r/fantasyfootball + /r/LiverpoolFC + /r/nba + /r/nfl + /r/soccer</h4>
 <div class="figure"><span id="fig:unnamed-chunk-12"></span>
 <img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-12-1.png" alt="  Posts with score &gt; 10, Domains with &gt; 15 posts" width="1152" />
 <p class="caption">
@@ -290,22 +290,32 @@ Figure 5:  Posts with score &gt; 10, Domains with &gt; 15 posts
 </div>
 <hr />
 </div>
+<div id="rmovies-rtelevision-rboxoffice" class="section level4">
+<h4>/r/movies + /r/television + /r/boxoffice</h4>
+<div class="figure"><span id="fig:unnamed-chunk-14"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-14-1.png" alt="  Posts with score &gt; 10, Domains with &gt; 15 posts" width="1152" />
+<p class="caption">
+Figure 6:  Posts with score &gt; 10, Domains with &gt; 15 posts
+</p>
+</div>
+<hr />
+</div>
 <div id="top-subreddits-where-global-mainstream-media-gets-referred" class="section level4">
 <h4>Top subreddits where Global Mainstream media gets referred</h4>
-<div class="figure"><span id="fig:unnamed-chunk-14"></span>
-<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-14-1.png" alt="  Posts with score &gt; 25, Subreddits with &gt; 100 posts. Excl /r/politics" width="1152" />
+<div class="figure"><span id="fig:unnamed-chunk-16"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-16-1.png" alt="  Posts with score &gt; 25, Subreddits with &gt; 100 posts. Excl /r/politics" width="1152" />
 <p class="caption">
-Figure 6:  Posts with score &gt; 25, Subreddits with &gt; 100 posts. Excl /r/politics
+Figure 7:  Posts with score &gt; 25, Subreddits with &gt; 100 posts. Excl /r/politics
 </p>
 </div>
 <hr />
 </div>
 <div id="top-subreddits-where-indian-mainstream-media-gets-referred" class="section level4">
 <h4>Top subreddits where Indian Mainstream media gets referred</h4>
-<div class="figure"><span id="fig:unnamed-chunk-16"></span>
-<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-16-1.png" alt="  Posts with score &gt; 10, Subreddits with &gt;10 posts. Excl /r/india" width="1152" />
+<div class="figure"><span id="fig:unnamed-chunk-18"></span>
+<img src="https://balaca.github.io/post/reddit_files/figure-html/unnamed-chunk-18-1.png" alt="  Posts with score &gt; 10, Subreddits with &gt;10 posts. Excl /r/india" width="1152" />
 <p class="caption">
-Figure 7:  Posts with score &gt; 10, Subreddits with &gt;10 posts. Excl /r/india
+Figure 8:  Posts with score &gt; 10, Subreddits with &gt;10 posts. Excl /r/india
 </p>
 </div>
 <hr />
