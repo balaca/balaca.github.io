@@ -1,0 +1,1056 @@
+
+
+  
+    
+  
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.21">
+    <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
+    <title>Recommending Subreddits with Google BigQuery and the implicit library</title>
+    <meta name="author" content="Balachandar Arumguam">
+    <meta name="keywords" content=", Balachandar Blog, Balachandar&#39;s Blog, Balachandar, Data Science, Data Blog, Statistics, Machine Learning, Linear Algebra, Data Visualization, Data Analytics, Data Mining, R, Python">
+
+    <link rel="icon" href="https://balaca.github.io/favicon.ico">
+    
+
+    
+    <meta name="description" content="This post looks into Recommender-System in Reddit by using Collaborative Filtering.">
+    <meta property="og:description" content="This post looks into Recommender-System in Reddit by using Collaborative Filtering.">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Recommending Subreddits with Google BigQuery and the implicit library">
+    <meta property="og:url" content="/2017/11/reddit-reco/">
+    <meta property="og:site_name" content="Balachandar Blog">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Balachandar Blog">
+    <meta name="twitter:description" content="This post looks into Recommender-System in Reddit by using Collaborative Filtering.">
+    
+      <meta name="twitter:creator" content="@bala_io">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=640">
+    
+
+    
+      <meta property="og:image" content="https://balaca.github.io/img/reddit.jpg">
+    
+    
+      <meta property="og:image" content="https://balaca.github.io/img/reddit.jpg">
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" />
+    
+    
+    <link rel="stylesheet" href="https://balaca.github.io/css/style-u6mk0ojoywresbx8iepslrmmhl4stuhrsxuwhkpwrkrx7mryjcaimasnk4pi.min.css" />
+    
+    
+
+    
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67299773-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://balaca.github.io/">Balachandar Blog</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://balaca.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://balaca.github.io/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Balachandar Arumguam</h4>
+        
+          <h5 class="sidebar-profile-bio">Explorer. Data Geek</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://balaca.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/balaca" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://in.linkedin.com/in/balachandararumugam" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-linkedin"></i>
+      
+      <span class="sidebar-button-desc">LinkedIn</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://twitter.com/bala_io" target="_blank">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+      
+      <span class="sidebar-button-desc">Twitter</span>
+    </a>
+  </li>
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('/img/reddit.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Recommending Subreddits with Google BigQuery and the implicit library
+    </h1>
+  
+  <div class="postShorten-meta post-meta">
+  
+    <time itemprop="datePublished" datetime="2017-11-11T00:00:00Z">
+      
+  November 11, 2017
+
+    </time>
+  
+  
+
+</div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p><a href="https://balaca.github.io/2017/10/reddit/">My previous post</a> looked into most linked domains in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within that cluster. It gave a glimpse of similar subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, <a href="https://www.reddit.com/r/politics/wiki/index">US Politics Wiki-rules</a>), or, in terms of proximity of subreddits, as extrapolated from redditors’ activity.</p>
+<p>Reddit does provide a <a href="https://www.reddit.com/subreddits/">Search box</a> in its user interface though, where you can enter a keyword, and get a list of recommendations, along with a <a href="https://www.nytimes.com/2016/01/03/opinion/how-to-cultivate-the-art-of-serendipity.html">sernedipty</a> recommendation.</p>
+<p>While attempting at arrive at my version of it, I came across this blog on <a href="http://www.benfrederickson.com/matrix-factorization/">Finding Similar Music using Matrix Factorization</a> by <em>Ben Frederickson</em> and <a href="https://towardsdatascience.com/recommending-github-repositories-with-google-bigquery-and-the-implicit-library-e6cce666c77">Recommending GitHub Repositories with Google BigQuery and the implicit library</a> by <em>Juarez Bochi</em> and both of them turned out to be immensely helpful in structuring the approach.</p>
+</div>
+<div id="content-based-and-collaborative-filtering-approaches" class="section level3">
+<h3>Content-based and Collaborative-filtering approaches</h3>
+<p>To start with, Recommender Systems are broadly classified into two types <a href="https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering">content-based</a> and <a href="https://en.wikipedia.org/wiki/Recommender_system#Collaborative_filtering">collaborative-filtering</a> approach. There are also other approaches e.g. demographics based, social-recommendation based, or hybrid approach which combines any or all of the above approaches.</p>
+<p>Content-based filtering is straight-forward one, where we look at attributes or meta-data of the items, and try to build an user-profile by combining the item-profiles from user’s history. Then we build a utility-function (or) a classifier for the user, to predict whether the user will like or dislike a new-item, by using a distance-measure, between his user-profile and the item-profile of new-item. While this approach doesn’t need other users’ data, it has some major disadvantages such as: requiring items to be described in standard attributes (which means finer aesthetics of item can’t be captured), not making use of similar-users’ preferences, and lack of serendipity in recommendation.</p>
+<p>Collaborative filtering looks at user’s past behavior as well as behavior exhibited by similar users. CF model can be built using explicit feedback (e.g. user’s explicit rating) or implicit feedback like clicks, page-visits, video-plays etc. Here in reddit, there is no such explicit rating mechanism whilethere is plenty of implicit-feedback (posts, comments activity). It may seem counter-intuitive, but often, implicit feedback is preferred as it is less noisy and easy to gather, than explicit feedback which is often scarce and gets noisy due to distortion in rating from one’s aspiration towards an item.</p>
+<p>In this post, I use a random-sample of reddit posts data and make use of matrix-factorization in <a href="https://github.com/benfred/implicit/">implicit</a> library (it implements the paper <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>) to come up with the recommendations.</p>
+</div>
+<div id="data-preparation" class="section level3">
+<h3>Data Preparation</h3>
+<p>First let’s look at average number of subreddits, to which an author posts to:</p>
+<pre class="python"><code>query = &quot;&quot;&quot;
+WITH posts AS (
+     SELECT author, COUNT( DISTINCT subreddit) as n_subreddits
+     FROM `fh-bigquery.reddit_posts.2017_09`     
+     GROUP BY author
+)
+SELECT 
+ n_subreddits,  COUNT( DISTINCT author) AS n_authors
+FROM posts
+GROUP BY n_subreddits
+ORDER BY n_subreddits
+&quot;&quot;&quot;
+data = pd.io.gbq.read_gbq(query, dialect=&quot;standard&quot;, project_id=project_id)</code></pre>
+<p><img src="https://balaca.github.io/post/reddit_reco_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
+<p>As we can see, there are authors who have posted to 100+ subreddits in a month (this includes reddit’s automatic news bots too); let’s restrict our analysis to typical users. Authors who posted to &lt;= 15 subreddits, constitute almost all ( <strong>99.7%</strong> ) of active users (in terms of ‘posts’ activity).</p>
+<p>Let’s limit to only those users who posted to <strong>2 to 15 subreddits</strong>. For simplicity, let’s restrict to <strong>top 2000 subreddits</strong> (in terms of unique active authors) and pick a <strong>random sample of 100K authors</strong> for further analysis. Final dataset comprises of all those authors (from 100K authors sample) who made non-zero posts to top 2000 subreddits.</p>
+<pre class="python"><code>query = &quot;&quot;&quot;
+WITH posts AS (
+     SELECT author, subreddit, COUNT(*) as n_posts
+     FROM `fh-bigquery.reddit_posts.2017_09`     
+     WHERE score &gt; 0 AND over_18 IS FALSE
+     GROUP BY author, subreddit
+     HAVING n_posts &gt; 1
+),
+subreddits_posts AS (
+     SELECT subreddit, COUNT(DISTINCT author) as c
+     FROM posts
+     GROUP BY subreddit
+     ORDER BY c DESC
+     LIMIT 2000
+),
+authors_posts AS (
+    SELECT author, COUNT(DISTINCT subreddit) as c
+    FROM  posts
+    WHERE subreddit IN (SELECT subreddit FROM subreddits_posts)
+    GROUP BY author
+    HAVING c &gt; 1 AND c &lt;= 15
+    LIMIT 100000
+)
+SELECT
+author, subreddit, n_posts
+FROM posts
+WHERE subreddit IN (SELECT subreddit FROM subreddits_posts)
+AND author IN (SELECT author FROM authors_posts)
+ORDER BY n_posts DESC
+&quot;&quot;&quot;
+
+data_posts = pd.io.gbq.read_gbq(query, dialect=&quot;standard&quot;, project_id=project_id)</code></pre>
+<p>A quick peek into summary of the data shows there are users who have made 2000+ posts to a subreddit.</p>
+<pre class="python"><code># summary of data-set
+data_posts.describe()</code></pre>
+<pre><code>        n_posts
+count   150809.000000
+mean  5.058889
+std   16.927081
+min   2.000000
+25%   2.000000
+50%   3.000000
+75%   4.000000
+max   2867.000000</code></pre>
+<p>Here I limit only to entries with <strong>&lt;=160</strong> posts by an author to a subreddit, which is also <strong>~99.9th</strong> percentile in the data-sample.</p>
+</div>
+<div id="model-fitting" class="section level3">
+<h3>Model Fitting</h3>
+<pre class="python"><code>data_posts = data_posts[data_posts.n_posts &lt;= 160] 
+
+# map each subreddit and author to a unique categorical code
+data_posts[&#39;author&#39;] = data_posts[&#39;author&#39;].astype(&quot;category&quot;)
+data_posts[&#39;subreddit&#39;] = data_posts[&#39;subreddit&#39;].astype(&quot;category&quot;)
+
+# create a sparse matrix of all the authors/subreddits
+actives = coo_matrix((data_posts[&#39;n_posts&#39;].astype(np.float64),
+                   (data_posts[&#39;subreddit&#39;].cat.codes.copy(),
+                    data_posts[&#39;author&#39;].cat.codes.copy())))</code></pre>
+<pre class="python"><code># initialize and train model
+model = AlternatingLeastSquares(factors=50,
+                                regularization=0.01,
+                                dtype=np.float64,
+                                iterations=50)
+                                
+
+# Map the n_posts variable in subreddit x author matrix to its BM25 equivalent
+# BM25 is, roughly,  an improved version of TF-IDF metric
+# http://www.benfrederickson.com/distance-metrics/
+actives = bm25_weight(actives, K1=100, B=0.8)
+
+
+# Pass matrix of BM25 values, to implicit algorithm
+# Algorithm maps authors and subreddit into latent-dimensions of 50 factors 
+model.fit(actives)</code></pre>
+<p>Here I have mapped n_posts into BM25 equivalent before passing the sparse-matrix for further matrix-factorization. TF-IDF approach, and other ways of measuring similarity between two entities, are explained in detail <a href="http://www.benfrederickson.com/distance-metrics/">this blog</a> by the author of ‘implicit’ package.</p>
+<pre class="python"><code># dictionaries to translate names to ids and vice-versa
+subreddits = dict(enumerate(data_posts[&#39;subreddit&#39;].cat.categories))
+subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
+<p>Now that we have model ready, let’s see the similar subreddits.</p>
+</div>
+<div id="find-similar-subreddits" class="section level3">
+<h3>Find similar subreddits</h3>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;politics&#39;])]</code></pre>
+<pre><code>[(&#39;politics&#39;, 1.0000000000000002),
+(&#39;environment&#39;, 0.87256491185317131),
+(&#39;worldnews&#39;, 0.86658125965518107),
+(&#39;esist&#39;, 0.85225822425160058),
+(&#39;inthenews&#39;, 0.84332178093083832),
+(&#39;MarchAgainstTrump&#39;, 0.84067819666650712),
+(&#39;democrats&#39;, 0.83176377147009295),
+(&#39;offbeat&#39;, 0.81102110011663076),
+(&#39;nottheonion&#39;, 0.8057358816950505),
+(&#39;Bad_Cop_No_Donut&#39;, 0.80488184365418369)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;worldnews&#39;])]</code></pre>
+<pre><code>[(&#39;worldnews&#39;, 1.0000000000000002),
+(&#39;news&#39;, 0.87487712646659022),
+(&#39;politics&#39;, 0.86658125965518107),
+(&#39;UpliftingNews&#39;, 0.85072298844006966),
+(&#39;offbeat&#39;, 0.83173595719496218),
+(&#39;inthenews&#39;, 0.81859113133471684),
+(&#39;environment&#39;, 0.79155857305394062),
+(&#39;TrueReddit&#39;, 0.77961627898785923),
+(&#39;nottheonion&#39;, 0.75743456333522852),
+(&#39;worldpolitics&#39;, 0.7365447319996693)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;europe&#39;])]</code></pre>
+<pre><code>[(&#39;europe&#39;, 1.0000000000000002),
+(&#39;unitedkingdom&#39;, 0.80390909997386562),
+(&#39;syriancivilwar&#39;, 0.780741489260116),
+(&#39;ukpolitics&#39;, 0.77025272815986912),
+(&#39;de&#39;, 0.7574120150909972),
+(&#39;LabourUK&#39;, 0.74397124973569562),
+(&#39;Scotland&#39;, 0.72138801028850219),
+(&#39;SyrianCirclejerkWar&#39;, 0.71167918704427369),
+(&#39;Romania&#39;, 0.70603745470495449),
+(&#39;Turkey&#39;, 0.7026006465476422)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;science&#39;])]</code></pre>
+<pre><code>[(&#39;science&#39;, 1.0000000000000004),
+(&#39;EverythingScience&#39;, 0.93414776008424638),
+(&#39;psychology&#39;, 0.89759141658483677),
+(&#39;space&#39;, 0.89404927937862244),
+(&#39;Futurology&#39;, 0.84796402066138654),
+(&#39;news&#39;, 0.77473057040176496),
+(&#39;Astronomy&#39;, 0.76680323773153269),
+(&#39;Physics&#39;, 0.75211901150918992),
+(&#39;energy&#39;, 0.73040888104728274),
+(&#39;environment&#39;, 0.72954976604889632)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;movies&#39;])]</code></pre>
+<pre><code>[(&#39;movies&#39;, 1.0),
+(&#39;CastRecordings&#39;, 0.97764694176910771),
+(&#39;boxoffice&#39;, 0.80589294692318436),
+(&#39;television&#39;, 0.80580737502609401),
+(&#39;FIlm&#39;, 0.80526562061786577),
+(&#39;entertainment&#39;, 0.80518885985662325),
+(&#39;horror&#39;, 0.78922592213993759),
+(&#39;moviecritic&#39;, 0.78111979554699174),
+(&#39;comedy&#39;, 0.72267163823374903),
+(&#39;marvelstudios&#39;, 0.69814875205594795)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;nfl&#39;])]</code></pre>
+<pre><code>[(&#39;nfl&#39;, 1.0000000000000004),
+(&#39;fantasyfootball&#39;, 0.89367361832507575),
+(&#39;Tennesseetitans&#39;, 0.81992806264353901),
+(&#39;KansasCityChiefs&#39;, 0.81785616443519937),
+(&#39;minnesotavikings&#39;, 0.81305050937778889),
+(&#39;Fantasy_Football&#39;, 0.80856182279988509),
+(&#39;cowboys&#39;, 0.80494524364911568),
+(&#39;LosAngelesRams&#39;, 0.79100488742119768),
+(&#39;Patriots&#39;, 0.7840318338252712),
+(&#39;buffalobills&#39;, 0.78022631220261829)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;dataisbeautiful&#39;])]</code></pre>
+<pre><code>[(&#39;dataisbeautiful&#39;, 1.0000000000000002),
+(&#39;InternetIsBeautiful&#39;, 0.68618942072102962),
+(&#39;MachineLearning&#39;, 0.61182487912821226),
+(&#39;javascript&#39;, 0.60323173803427721),
+(&#39;Python&#39;, 0.60041269643377471),
+(&#39;reactjs&#39;, 0.58750011122905088),
+(&#39;programming&#39;, 0.58183771746746316),
+(&#39;webdev&#39;, 0.56555730100160906),
+(&#39;motivation&#39;, 0.55634548146043017),
+(&#39;java&#39;, 0.55060891313209037)]</code></pre>
+<pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;india&#39;])]</code></pre>
+<pre><code>[(&#39;india&#39;, 0.99999999999999989),
+(&#39;indianews&#39;, 0.88899975384886409),
+(&#39;IndiaSpeaks&#39;, 0.8833569213859862),
+(&#39;bakchodi&#39;, 0.86393956351005186),
+(&#39;pakistan&#39;, 0.82199852188563871),
+(&#39;Cricket&#39;, 0.8083716806631227),
+(&#39;bollywood&#39;, 0.78534592933755132),
+(&#39;indianpeoplefacebook&#39;, 0.688104745142472),
+(&#39;Kerala&#39;, 0.68013967096682715),</code></pre>
+</div>
+<div id="recommendations" class="section level3">
+<h3>Recommendations</h3>
+<p><strong>implicit</strong> library also provides <em>model.recommend()</em> to generate user-specific recommendation using list of items he likes. With reddit API, we can get the subreddits of interest for a reddit user, by looking at his recent posts and comments data. Using the list of subreddits as user-profile, we can get new recommendations from the model.</p>
+<div id="connect-to-reddit-api" class="section level4">
+<h4>Connect to reddit API</h4>
+<pre class="python"><code>def author_subreddits(author):
+    url = &quot;https://api.reddit.com/user/{}/submitted&quot;.format(author)
+    # https://www.reddit.com/dev/api/oauth#GET_user_{username}_submitted
+    # http://docs.python-requests.org/en/master/user/quickstart/#passing-parameters-in-urls
+    payload = {&#39;limit&#39;: &#39;100&#39;, &#39;sort&#39;: &#39;new&#39;}  # Most-recent 100 reddit posts
+    resp = requests.get(url, auth=reddit_auth, params = payload, headers = {&#39;User-agent&#39;: &#39;chrome&#39;})    
+    subreddits = [ r[&#39;data&#39;][&#39;subreddit&#39;] for r in resp.json()[&#39;data&#39;][&#39;children&#39;] ]                    
+    return list(set(subreddits))
+
+def author_items(a_subreddits):
+    active_ids = [subreddits_ids[s] for s in a_subreddits if s in subreddits_ids]
+    data = [n_posts for _ in active_ids]  # Assume 10 posts in active subreddits
+    rows = [0 for _ in active_ids]
+    shape = (1, model.item_factors.shape[0])
+    return coo_matrix((data, (rows, active_ids)), shape=shape).tocsr()</code></pre>
+<p>With new functionality added to <em>implicit</em> library by Juarez Bochi, we can now see explanations also along with user-specific item-recommendations.</p>
+<pre class="python"><code>def recommend(author_items):
+    recs = model.recommend(userid=0, user_items=author_items, recalculate_user=True)
+    return [(subreddits[r], s) for r, s in recs]
+
+def explain(author_items, subreddit):
+    _, recs, _ = model.explain(userid=0, user_items=author_items, itemid=subreddits_ids[subreddit])
+    return [(subreddits[r], s) for r, s in recs]</code></pre>
+</div>
+<div id="recommendations-for-uspez" class="section level4">
+<h4>Recommendations for /u/spez</h4>
+<p>Let’s compute the recommendations for popular redditors mentioned in <a href="https://medium.com/@hoffa/the-most-famous-reddit-accounts-c9958b5bc376">this blog by Felip Hoffa</a>:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="https://reddit.com/u/spez">/u/spez</a>, the most famous reddit CEO as per the blog</p></li>
+<li><p><a href="https://reddit.com/u/wil">/u/wil</a> who is the celebrity Wil Wheaton</p></li>
+</ol>
+<pre class="python"><code>spez = author_items(author_subreddits(&#39;spez&#39;) ) 
+recommend(spez)</code></pre>
+<pre><code>[(&#39;worldnews&#39;, 0.41962765308588484),
+(&#39;news&#39;, 0.40926298460008137),
+(&#39;nottheonion&#39;, 0.39674370249576651),
+(&#39;politics&#39;, 0.3955158977981878),
+(&#39;india&#39;, 0.36095457299514017),
+(&#39;TropicalWeather&#39;, 0.35793863630303491),
+(&#39;dataisbeautiful&#39;, 0.34413671654730171),
+(&#39;inthenews&#39;, 0.3419012198213619),
+(&#39;conspiracy&#39;, 0.33370577980561406),
+(&#39;learnpython&#39;, 0.32718576643666397)]</code></pre>
+<pre class="python"><code>explain(spez, &#39;worldnews&#39;)</code></pre>
+<pre><code>[(&#39;atheism&#39;, 0.14474076316881168),
+(&#39;todayilearned&#39;, 0.12226239255069876),
+(&#39;sports&#39;, 0.097744621282540883),
+(&#39;The_Donald&#39;, 0.053550806420940601),
+(&#39;programming&#39;, 0.019931820201193797),
+(&#39;cscareerquestions&#39;, -0.018602750538300905)]</code></pre>
+</div>
+<div id="recommendations-for-uwil" class="section level4">
+<h4>Recommendations for /u/wil</h4>
+<pre class="python"><code># Wil Wheaton
+wil = author_items(author_subreddits(&#39;wil&#39;) ) 
+recommend(wil)</code></pre>
+<pre><code>[(&#39;todayilearned&#39;, 0.9519672716815093),
+(&#39;mildlyinteresting&#39;, 0.91912160652252661),
+(&#39;mildlyinfuriating&#39;, 0.81833013521266285),
+(&#39;OldSchoolCool&#39;, 0.81222383453994595),
+(&#39;gifs&#39;, 0.80772905399999551),
+(&#39;WTF&#39;, 0.76609066839306661),
+(&#39;oddlysatisfying&#39;, 0.75641449504735825),
+(&#39;movies&#39;, 0.71394855058414752),
+(&#39;Jokes&#39;, 0.70337572635830581),
+(&#39;videos&#39;, 0.69795440758722682)]</code></pre>
+<pre class="python"><code>explain(wil, &#39;todayilearned&#39;)</code></pre>
+<pre><code>[(&#39;nottheonion&#39;, 0.095599276662095195),
+(&#39;pics&#39;, 0.08130569672080562),
+(&#39;creepy&#39;, 0.081217285500511716),
+(&#39;photoshopbattles&#39;, 0.070843088126791756),
+(&#39;funny&#39;, 0.065690510265598315),
+(&#39;interestingasfuck&#39;, 0.05689208840228871),
+(&#39;politics&#39;, 0.056387815873278353),
+(&#39;Music&#39;, 0.055991864671039622),
+(&#39;ProgrammerHumor&#39;, 0.047813558687162673),
+(&#39;TheSimpsons&#39;, 0.045338399248090744)]</code></pre>
+</div>
+<div id="recommendation-for-a-custom-list-of-subreddits" class="section level4">
+<h4>Recommendation for a custom-list of subreddits</h4>
+<p>Let’s build a custom-list of subreddits, and check the recommendations for the custom-list.</p>
+<pre class="python"><code>n_posts = 10.
+custom = author_items([&#39;MachineLearning&#39;, &#39;science&#39;, &#39;space&#39;])
+recommend(custom)</code></pre>
+<pre><code>[(&#39;Futurology&#39;, 0.35250874397937865),
+(&#39;technology&#39;, 0.33461688885765595),
+(&#39;psychology&#39;, 0.33013781912189211),
+(&#39;EverythingScience&#39;, 0.31051852362730364),
+(&#39;news&#39;, 0.30641943808422778),
+(&#39;Astronomy&#39;, 0.30501076666920923),
+(&#39;energy&#39;, 0.28615324716372809),
+(&#39;programming&#39;, 0.27123619696790718),
+(&#39;worldnews&#39;, 0.2636338747438754),
+(&#39;astrology&#39;, 0.26051125864920122)]</code></pre>
+<pre class="python"><code>explain(custom, &#39;energy&#39;)</code></pre>
+<pre><code>[(&#39;science&#39;, 0.12675927609142465),
+(&#39;space&#39;, 0.097574084741807524),
+(&#39;MachineLearning&#39;, 0.061819886330495885)]</code></pre>
+</div>
+</div>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/reddit/">Reddit</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/bigquery/">BigQuery</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/matrix-factorization/">Matrix Factorization</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/recommender-systems/">Recommender Systems</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/big-data/">Big Data</a>
+
+  <a class="tag tag--primary tag--small" href="https://balaca.github.io//tags/social-media/">Social Media</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://balaca.github.io/2017/10/reddit/" data-tooltip="Reddit top domains:  favorite news sources of redditors">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2017 Balachandar Arumguam. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  <nav>
+    <ul class="post-actions post-action-nav">
+      
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--disabled">
+          
+            <i class="fa fa-angle-left"></i>
+            <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+          </a>
+        </li>
+        <li class="post-action">
+          
+            <a class="post-action-btn btn btn--default tooltip--top" href="https://balaca.github.io/2017/10/reddit/" data-tooltip="Reddit top domains:  favorite news sources of redditors">
+          
+            <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </nav>
+  <ul class="post-actions post-action-share">
+    
+      <li class="post-action hide-lg hide-md hide-sm">
+        <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+          <i class="fa fa-share-alt"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      </li>
+      <li class="post-action hide-xs">
+        <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+    
+    
+      <li class="post-action">
+        <a class="post-action-btn btn btn--default" href="#disqus_thread">
+          <i class="fa fa-comment-o"></i>
+        </a>
+      </li>
+    
+    <li class="post-action">
+      
+        <a class="post-action-btn btn btn--default" href="#">
+      
+        <i class="fa fa-list"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <ul class="share-options">
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+        <i class="fa fa-google-plus"></i><span>Share on Google Plus</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+        <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+      </a>
+    </li>
+    <li class="share-option">
+      <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3a%2f%2fbalaca.github.io%2f2017%2f11%2freddit-reco%2f">
+        <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+      </a>
+    </li>
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/26a2cae762a74eba1dbb651e5b7e4a25?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Balachandar Arumguam</h4>
+    
+      <div id="about-card-bio">Explorer. Data Geek</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Bangalore, India
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/11/reddit-reco/">
+                <h3 class="media-heading">Recommending Subreddits with Google BigQuery and the implicit library</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">IntroductionMy previous post looked into most linked domains in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within that cluster. It gave a glimpse of similar subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, US Politics Wiki-rules), or, in terms of proximity of subreddits, as extrapolated from redditors’ activity.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/10/reddit/">
+                <h3 class="media-heading">Reddit top domains:  favorite news sources of redditors</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Oct 10, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Reddit is a happening space to start conversations on any topical stuff with other anons in reddit community. Understandably though, it takes some initial effort on user’s part to figure how to get going in reddit aka the front page of the internet.
+With thousands of user created communities out there to pick from (called subreddits in Reddit lingo), a new user will likely be at loss wondering how to pick the communities relevant to him or figure what sort of content gets discussed in communities that look interesting.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/08/ka-results/">
+                <h3 class="media-heading">Karnataka 2013 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-Share of Popular PartiesNumber of Constituencies Won and LostCandidates who saved their depositsCandidate who doesn’t get more than one-sixth of votes polled in Constituency loses his deposit.
+Histogram of Vote-sharesSmoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonSmoothened histogram after normalizing for difference in number of seats won.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/06/uk-results/">
+                <h3 class="media-heading">Uttarakhand 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 200+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 200+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/06/twitter-graph/">
+                <h3 class="media-heading">Twitter and The Social Graph</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Jun 6, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">When it comes to discovering or consuming real-time content, Twitter is the place to be; be it sending out ‘Tweets’ real-time, or discovering latest online ‘Trends’ anywhere, or ability to begin a ‘conversation’ with anyone, Twitter does it all. In fact, Twitter Management wrote this in their letter to shareholders last year.
+We’re focused now on what Twitter does best: live.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/manipur-results/">
+                <h3 class="media-heading">Manipur 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/goa-results/">
+                <h3 class="media-heading">Goa 2017 Election  - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were ~ 300 Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were ~ 300 Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/punjab-results/">
+                <h3 class="media-heading">Punjab 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/up-results/">
+                <h3 class="media-heading">Uttar Pradesh 2017 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 1000+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://balaca.github.io/2017/05/tamilnadu-2016-election---a-data-story/">
+                <h3 class="media-heading">TamilNadu 2016 Election - A Data Story</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  May 5, 2017
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ever since CN Annadurai of DMK uprooted INC, the sole dominant party then in 1967 elections, two dominant parties DMK and AIADMK had been alternating in throne for the most time in TamilNadu politics. One exception was December 1984 election when MG Ramachandran of AIADMK, incumbent Chief Minister then, won an absolute majority with 54% vote-share and retained his Chief Minister seat.
+Fast forward 30 years, last May, we witnessed another such rarity when incumbent Chief Minister J Jayalalitha held onto her seat despite the anti-incumbency wave (partly from mishandling of floods), new parties mushrooming in the State and no popular party in AIADMK coaliation.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         11 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://balaca.github.io/images/cover-v1.2.0.jpg');"></div>
+  
+
+
+    
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+
+
+<script src="https://balaca.github.io/js/script-wl33z0n6ocaypepiqrazthtivfrliqijej4rq8ek8gvrv1awftmgjuv8k4zc.min.js"></script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight').each(function(i, block) {
+    var code = "";
+    hljs.highlightAuto(block.innerText).value.split(/\r\n|\r|\n/).forEach(function(line) {
+      code += "<span class=\"line\">" + line + "</span><br>";
+    });
+    if (code.length > 0) {
+      block.innerHTML = code;  
+    }
+  });
+  $('pre > code').each(function(i, block) {
+    $(this).addClass('codeblock');
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/balaca.github.io\/2017\/11\/reddit-reco\/';
+          
+            this.page.identifier = '\/2017\/11\/reddit-reco\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'balaca-blog';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+
+    
+  </body>
+</html>
+

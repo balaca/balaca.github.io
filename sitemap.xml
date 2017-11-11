@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://balaca.github.io/2017/11/reddit-reco/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://balaca.github.io/2017/10/reddit/</loc>
     <lastmod>2017-10-29T00:00:00+00:00</lastmod>
   </url>
@@ -54,19 +59,19 @@
   
   <url>
     <loc>https://balaca.github.io/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/big-data/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/bigquery/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -118,20 +123,32 @@
   </url>
   
   <url>
+    <loc>https://balaca.github.io/tags/matrix-factorization/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://balaca.github.io/post/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://balaca.github.io/tags/recommender-systems/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/reddit/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/social-media/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -149,7 +166,7 @@
   
   <url>
     <loc>https://balaca.github.io/tags/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
