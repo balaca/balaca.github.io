@@ -23,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.21">
     <meta name="theme" content="Tranquilpeak 0.3.1-BETA">
-    <title>Recommending Subreddits with Google BigQuery and the implicit library</title>
+    <title>Recommending Reddit communities with Google BigQuery and the implicit library</title>
     <meta name="author" content="Balachandar Arumguam">
     <meta name="keywords" content=", Balachandar Blog, Balachandar&#39;s Blog, Balachandar, Data Science, Data Blog, Statistics, Machine Learning, Linear Algebra, Data Visualization, Data Analytics, Data Mining, R, Python">
 
@@ -34,7 +34,7 @@
     <meta name="description" content="This post looks into Recommender-System in Reddit by using Collaborative Filtering.">
     <meta property="og:description" content="This post looks into Recommender-System in Reddit by using Collaborative Filtering.">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Recommending Subreddits with Google BigQuery and the implicit library">
+    <meta property="og:title" content="Recommending Reddit communities with Google BigQuery and the implicit library">
     <meta property="og:url" content="/2017/11/reddit-reco/">
     <meta property="og:site_name" content="Balachandar Blog">
     <meta name="twitter:card" content="summary">
@@ -205,7 +205,7 @@ ga('send', 'pageview');
       <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Recommending Subreddits with Google BigQuery and the implicit library
+      Recommending Reddit communities with Google BigQuery and the implicit library
     </h1>
   
   <div class="postShorten-meta post-meta">
@@ -235,20 +235,20 @@ ga('send', 'pageview');
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <div id="introduction" class="section level3">
-<h3>Introduction</h3>
+<h3>Introduction:</h3>
 <p><a href="https://balaca.github.io/2017/10/reddit/">My previous post</a> looked into most linked domains in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within that cluster. It gave a glimpse of similar subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, <a href="https://www.reddit.com/r/politics/wiki/index">US Politics Wiki-rules</a>), or, in terms of proximity of subreddits, as extrapolated from redditors’ activity.</p>
 <p>Reddit does provide a <a href="https://www.reddit.com/subreddits/">Search box</a> in its user interface though, where you can enter a keyword, and get a list of recommendations, along with a <a href="https://www.nytimes.com/2016/01/03/opinion/how-to-cultivate-the-art-of-serendipity.html">sernedipty</a> recommendation.</p>
 <p>While attempting at arrive at my version of it, I came across this blog on <a href="http://www.benfrederickson.com/matrix-factorization/">Finding Similar Music using Matrix Factorization</a> by <em>Ben Frederickson</em> and <a href="https://towardsdatascience.com/recommending-github-repositories-with-google-bigquery-and-the-implicit-library-e6cce666c77">Recommending GitHub Repositories with Google BigQuery and the implicit library</a> by <em>Juarez Bochi</em> and both of them turned out to be immensely helpful in structuring the approach.</p>
 </div>
 <div id="content-based-and-collaborative-filtering-approaches" class="section level3">
-<h3>Content-based and Collaborative-filtering approaches</h3>
+<h3>Content-based and Collaborative-filtering approaches:</h3>
 <p>To start with, Recommender Systems are broadly classified into two types <a href="https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering">content-based</a> and <a href="https://en.wikipedia.org/wiki/Recommender_system#Collaborative_filtering">collaborative-filtering</a> approach. There are also other approaches e.g. demographics based, social-recommendation based, or hybrid approach which combines any or all of the above approaches.</p>
-<p>Content-based filtering is straight-forward one, where we look at attributes or meta-data of the items, and try to build an user-profile by combining the item-profiles from user’s history. Then we build a utility-function (or) a classifier for the user, to predict whether the user will like or dislike a new-item, by using a distance-measure, between his user-profile and the item-profile of new-item. While this approach doesn’t need other users’ data, it has some major disadvantages such as: requiring items to be described in standard attributes (which means finer aesthetics of item can’t be captured), not making use of similar-users’ preferences, and lack of serendipity in recommendation.</p>
+<p>Content-based filtering is straight-forward one, where we look at attributes or meta-data of the items, and try to build an user-profile by combining the item-profiles from user’s history. Then we build a utility-function (or) a classifier for the user, to predict whether the user will like or dislike a new-item, by using a distance-measure, between user-profile and the item-profile of new-item. While this approach doesn’t need other users’ data, it has some major disadvantages such as: requiring items to be described in standard attributes (which means finer aesthetics of item can’t be captured), not making use of similar-users’ preferences, and lack of serendipity in recommendation.</p>
 <p>Collaborative filtering looks at user’s past behavior as well as behavior exhibited by similar users. CF model can be built using explicit feedback (e.g. user’s explicit rating) or implicit feedback like clicks, page-visits, video-plays etc. Here in reddit, there is no such explicit rating mechanism whilethere is plenty of implicit-feedback (posts, comments activity). It may seem counter-intuitive, but often, implicit feedback is preferred as it is less noisy and easy to gather, than explicit feedback which is often scarce and gets noisy due to distortion in rating from one’s aspiration towards an item.</p>
 <p>In this post, I use a random-sample of reddit posts data and make use of matrix-factorization in <a href="https://github.com/benfred/implicit/">implicit</a> library (it implements the paper <a href="http://yifanhu.net/PUB/cf.pdf">Collaborative Filtering for Implicit Feedback Datasets</a>) to come up with the recommendations.</p>
 </div>
 <div id="data-preparation" class="section level3">
-<h3>Data Preparation</h3>
+<h3>Data Preparation:</h3>
 <p>First let’s look at average number of subreddits, to which an author posts to:</p>
 <pre class="python"><code>query = &quot;&quot;&quot;
 WITH posts AS (
@@ -265,7 +265,7 @@ ORDER BY n_subreddits
 data = pd.io.gbq.read_gbq(query, dialect=&quot;standard&quot;, project_id=project_id)</code></pre>
 <p><img src="https://balaca.github.io/post/reddit_reco_files/figure-html/unnamed-chunk-4-1.png" width="768" /></p>
 <p>As we can see, there are authors who have posted to 100+ subreddits in a month (this includes reddit’s automatic news bots too); let’s restrict our analysis to typical users. Authors who posted to &lt;= 15 subreddits, constitute almost all ( <strong>99.7%</strong> ) of active users (in terms of ‘posts’ activity).</p>
-<p>Let’s limit to only those users who posted to <strong>2 to 15 subreddits</strong>. For simplicity, let’s restrict to <strong>top 2000 subreddits</strong> (in terms of unique active authors) and pick a <strong>random sample of 100K authors</strong> for further analysis. Final dataset comprises of all those authors (from 100K authors sample) who made non-zero posts to top 2000 subreddits.</p>
+<p>Let’s limit to only those users who posted to <strong>2 to 15 subreddits</strong>. For simplicity, let’s restrict to <strong>top 2000 subreddits</strong> (in terms of number of unique active authors) and pick a <strong>random sample of 100K authors</strong> for further analysis. Final dataset comprises of all those authors (from 100K authors sample) who made non-zero posts to top 2000 subreddits.</p>
 <pre class="python"><code>query = &quot;&quot;&quot;
 WITH posts AS (
      SELECT author, subreddit, COUNT(*) as n_posts
@@ -310,10 +310,10 @@ min   2.000000
 50%   3.000000
 75%   4.000000
 max   2867.000000</code></pre>
-<p>Here I limit only to entries with <strong>&lt;=160</strong> posts by an author to a subreddit, which is also <strong>~99.9th</strong> percentile in the data-sample.</p>
+<p>In further analysis, I limit only to entries with <strong>&lt;=160</strong> posts by an author to a subreddit, which is also <strong>~99.9th</strong> percentile in the data-sample.</p>
 </div>
 <div id="model-fitting" class="section level3">
-<h3>Model Fitting</h3>
+<h3>Model Fitting:</h3>
 <pre class="python"><code>data_posts = data_posts[data_posts.n_posts &lt;= 160] 
 
 # map each subreddit and author to a unique categorical code
@@ -332,7 +332,7 @@ model = AlternatingLeastSquares(factors=50,
                                 
 
 # Map the n_posts variable in subreddit x author matrix to its BM25 equivalent
-# BM25 is, roughly,  an improved version of TF-IDF metric
+# BM25 is, roughly,  a better version of TF-IDF metric
 # http://www.benfrederickson.com/distance-metrics/
 actives = bm25_weight(actives, K1=100, B=0.8)
 
@@ -340,14 +340,16 @@ actives = bm25_weight(actives, K1=100, B=0.8)
 # Pass matrix of BM25 values, to implicit algorithm
 # Algorithm maps authors and subreddit into latent-dimensions of 50 factors 
 model.fit(actives)</code></pre>
-<p>Here I have mapped n_posts into BM25 equivalent before passing the sparse-matrix for further matrix-factorization. TF-IDF approach, and other ways of measuring similarity between two entities, are explained in detail <a href="http://www.benfrederickson.com/distance-metrics/">this blog</a> by the author of ‘implicit’ package.</p>
+<p>Here I have mapped n_posts into BM25 equivalent before passing the sparse-matrix for further matrix-factorization. TF-IDF approach, and other ways of measuring similarity between two entities, are explained in detail in <a href="http://www.benfrederickson.com/distance-metrics/">this blog</a> by the author of ‘implicit’ package.</p>
 <pre class="python"><code># dictionaries to translate names to ids and vice-versa
 subreddits = dict(enumerate(data_posts[&#39;subreddit&#39;].cat.categories))
 subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 <p>Now that we have model ready, let’s see the similar subreddits.</p>
 </div>
 <div id="find-similar-subreddits" class="section level3">
-<h3>Find similar subreddits</h3>
+<h3>Find similar subreddits:</h3>
+<div id="rpolitics" class="section level5">
+<h5>/r/politics</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;politics&#39;])]</code></pre>
 <pre><code>[(&#39;politics&#39;, 1.0000000000000002),
 (&#39;environment&#39;, 0.87256491185317131),
@@ -359,6 +361,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;offbeat&#39;, 0.81102110011663076),
 (&#39;nottheonion&#39;, 0.8057358816950505),
 (&#39;Bad_Cop_No_Donut&#39;, 0.80488184365418369)]</code></pre>
+</div>
+<div id="rworldnews" class="section level5">
+<h5>/r/worldnews</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;worldnews&#39;])]</code></pre>
 <pre><code>[(&#39;worldnews&#39;, 1.0000000000000002),
 (&#39;news&#39;, 0.87487712646659022),
@@ -370,6 +375,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;TrueReddit&#39;, 0.77961627898785923),
 (&#39;nottheonion&#39;, 0.75743456333522852),
 (&#39;worldpolitics&#39;, 0.7365447319996693)]</code></pre>
+</div>
+<div id="reurope" class="section level5">
+<h5>/r/europe</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;europe&#39;])]</code></pre>
 <pre><code>[(&#39;europe&#39;, 1.0000000000000002),
 (&#39;unitedkingdom&#39;, 0.80390909997386562),
@@ -381,6 +389,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;SyrianCirclejerkWar&#39;, 0.71167918704427369),
 (&#39;Romania&#39;, 0.70603745470495449),
 (&#39;Turkey&#39;, 0.7026006465476422)]</code></pre>
+</div>
+<div id="rscience" class="section level5">
+<h5>/r/science</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;science&#39;])]</code></pre>
 <pre><code>[(&#39;science&#39;, 1.0000000000000004),
 (&#39;EverythingScience&#39;, 0.93414776008424638),
@@ -392,6 +403,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;Physics&#39;, 0.75211901150918992),
 (&#39;energy&#39;, 0.73040888104728274),
 (&#39;environment&#39;, 0.72954976604889632)]</code></pre>
+</div>
+<div id="rmovies" class="section level5">
+<h5>/r/movies</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;movies&#39;])]</code></pre>
 <pre><code>[(&#39;movies&#39;, 1.0),
 (&#39;CastRecordings&#39;, 0.97764694176910771),
@@ -403,6 +417,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;moviecritic&#39;, 0.78111979554699174),
 (&#39;comedy&#39;, 0.72267163823374903),
 (&#39;marvelstudios&#39;, 0.69814875205594795)]</code></pre>
+</div>
+<div id="rnfl" class="section level5">
+<h5>/r/nfl</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;nfl&#39;])]</code></pre>
 <pre><code>[(&#39;nfl&#39;, 1.0000000000000004),
 (&#39;fantasyfootball&#39;, 0.89367361832507575),
@@ -414,6 +431,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;LosAngelesRams&#39;, 0.79100488742119768),
 (&#39;Patriots&#39;, 0.7840318338252712),
 (&#39;buffalobills&#39;, 0.78022631220261829)]</code></pre>
+</div>
+<div id="rdataisbeautiful" class="section level5">
+<h5>/r/dataisbeautiful</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;dataisbeautiful&#39;])]</code></pre>
 <pre><code>[(&#39;dataisbeautiful&#39;, 1.0000000000000002),
 (&#39;InternetIsBeautiful&#39;, 0.68618942072102962),
@@ -425,6 +445,9 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;webdev&#39;, 0.56555730100160906),
 (&#39;motivation&#39;, 0.55634548146043017),
 (&#39;java&#39;, 0.55060891313209037)]</code></pre>
+</div>
+<div id="rindia" class="section level5">
+<h5>/r/india</h5>
 <pre class="python"><code>[(subreddits[r], s) for r, s in model.similar_items(subreddits_ids[&#39;india&#39;])]</code></pre>
 <pre><code>[(&#39;india&#39;, 0.99999999999999989),
 (&#39;indianews&#39;, 0.88899975384886409),
@@ -436,9 +459,10 @@ subreddits_ids = {r: i for i, r in subreddits.items()}</code></pre>
 (&#39;indianpeoplefacebook&#39;, 0.688104745142472),
 (&#39;Kerala&#39;, 0.68013967096682715),</code></pre>
 </div>
+</div>
 <div id="recommendations" class="section level3">
 <h3>Recommendations</h3>
-<p><strong>implicit</strong> library also provides <em>model.recommend()</em> to generate user-specific recommendation using list of items he likes. With reddit API, we can get the subreddits of interest for a reddit user, by looking at his recent posts and comments data. Using the list of subreddits as user-profile, we can get new recommendations from the model.</p>
+<p><strong>implicit</strong> library also provides <em>model.recommend()</em> to generate user-specific recommendation using list of items he likes. With reddit API, we can get the subreddits of interest for a reddit user, by looking at recent posts and comments data. Using the list of subreddits as user-profile, we can get new recommendations from the model.</p>
 <div id="connect-to-reddit-api" class="section level4">
 <h4>Connect to reddit API</h4>
 <pre class="python"><code>def author_subreddits(author):
@@ -519,8 +543,8 @@ recommend(wil)</code></pre>
 (&#39;ProgrammerHumor&#39;, 0.047813558687162673),
 (&#39;TheSimpsons&#39;, 0.045338399248090744)]</code></pre>
 </div>
-<div id="recommendation-for-a-custom-list-of-subreddits" class="section level4">
-<h4>Recommendation for a custom-list of subreddits</h4>
+<div id="recommendations-for-a-custom-list-of-subreddits" class="section level4">
+<h4>Recommendations for a custom-list of subreddits</h4>
 <p>Let’s build a custom-list of subreddits, and check the recommendations for the custom-list.</p>
 <pre class="python"><code>n_posts = 10.
 custom = author_items([&#39;MachineLearning&#39;, &#39;science&#39;, &#39;space&#39;])
@@ -789,14 +813,14 @@ recommend(custom)</code></pre>
             
             <div class="media-body">
               <a class="link-unstyled" href="https://balaca.github.io/2017/11/reddit-reco/">
-                <h3 class="media-heading">Recommending Subreddits with Google BigQuery and the implicit library</h3>
+                <h3 class="media-heading">Recommending Reddit communities with Google BigQuery and the implicit library</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
                   Nov 11, 2017
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">IntroductionMy previous post looked into most linked domains in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within that cluster. It gave a glimpse of similar subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, US Politics Wiki-rules), or, in terms of proximity of subreddits, as extrapolated from redditors’ activity.</div>
+              <div class="media-content hide-xs font-merryweather">Introduction:My previous post looked into most linked domains in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within that cluster. It gave a glimpse of similar subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, US Politics Wiki-rules), or, in terms of proximity of subreddits, as extrapolated from redditors’ activity.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
