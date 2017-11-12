@@ -298,6 +298,13 @@ ORDER BY n_posts DESC
 &quot;&quot;&quot;
 
 data_posts = pd.io.gbq.read_gbq(query, dialect=&quot;standard&quot;, project_id=project_id)</code></pre>
+<pre class="python"><code>data_posts.head(5)</code></pre>
+<pre><code>      author            subreddit    n_posts
+0     boundaryrope      Cricket      2
+1     snowfox251        Rainbow6     2
+2     Tele_Prompter     de           2
+3     martinritasingh   business     2
+4     DarkyLights       Undertale    2</code></pre>
 <p>A quick peek into summary of the data shows there are some users who have made 2000+ posts to a subreddit.</p>
 <pre class="python"><code># summary of data-set
 data_posts.describe()</code></pre>
@@ -310,7 +317,19 @@ min   2.000000
 50%   3.000000
 75%   4.000000
 max   2867.000000</code></pre>
-<p>I further limit dataset to only entries of <strong>&lt;=160</strong> posts by an author to a subreddit, which is also <strong>~99.9th</strong> percentile in the data-sample.</p>
+<p>To work around this, I limit dataset to only entries of <strong>&lt;=160</strong> posts which is <strong>~99.9th</strong> percentile in the data-sample. Let’s look at number of unique subreddits and authors in new filtered-dataset.</p>
+<pre class="python"><code>data_posts = data_posts[data_posts.n_posts &lt;= np.percentile(data_posts.n_posts, 99.9) ]
+
+# Number of unique subreddits, authors in dataset
+data_posts.subreddit.nunique(), data_posts.author.nunique()</code></pre>
+<pre><code>(1994, 59182)</code></pre>
+<p>Though there are as many unqiue subreddits and authors, the matrix overall is <strong>very sparse</strong> with few filled entries, thanks to the extreme diversity in the way users participate in reddit communities. In this case, we have only <strong>1.03%</strong> of matrix-cells filled with a value.</p>
+<pre class="python"><code># Sparsity of the matrix
+
+sparsity = 100 * (1 - data_posts.shape[0]/(data_posts.subreddit.nunique() * data_posts.author.nunique()))
+print(&#39;Sparsity of matrix: %.2f percent&#39; %sparsity)</code></pre>
+<pre><code>Sparsity of matrix: 99.87 percent</code></pre>
+<p>Matrix Factorization helps us here in finding general patterns, by mapping subreddits and authors to n latent factors which try to capture maximum possible variability in original sparse-matrix.</p>
 </div>
 <div id="model-fitting" class="section level3">
 <h3>Model Fitting:</h3>
