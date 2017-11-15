@@ -6,10 +6,19 @@
     <description>Recent content in Linear Algebra on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://balaca.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Recommending Reddit communities with Google BigQuery and the implicit library</title>
+      <link>https://balaca.github.io/2017/11/reddit-reco/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/11/reddit-reco/</guid>
+      <description>Introduction:My previous post looked into most linked domains, in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within a cluster of subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, US Politics Wiki-rules), or, in terms of spatial proximity of subreddits, as extrapolated from redditors’ activity.</description>
+    </item>
     
     <item>
       <title>Twitter and The Social Graph</title>

@@ -13,18 +13,18 @@
   </url>
   
   <url>
-    <loc>https://balaca.github.io/2017/08/ka-results/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://balaca.github.io/2017/06/uk-results/</loc>
-    <lastmod>2017-06-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://balaca.github.io/2017/06/twitter-graph/</loc>
     <lastmod>2017-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://balaca.github.io/2017/05/ka-results/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://balaca.github.io/2017/05/uk-results/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -93,32 +93,56 @@
   </url>
   
   <url>
+    <loc>https://balaca.github.io/tags/data-science/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://balaca.github.io/categories/data-science/</loc>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://balaca.github.io/tags/datascience/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-06-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://balaca.github.io/tags/decision-science/</loc>
+    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/election/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/geodata/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/graphics/</loc>
-    <lastmod>2017-05-21T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://balaca.github.io/categories/indian-democracy/</loc>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/linear-algebra/</loc>
-    <lastmod>2017-06-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -166,19 +190,13 @@
   
   <url>
     <loc>https://balaca.github.io/tags/statistics/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/</loc>
     <lastmod>2017-11-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://balaca.github.io/tags/tamilnadu/</loc>
-    <lastmod>2017-05-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -190,7 +208,7 @@
   
   <url>
     <loc>https://balaca.github.io/tags/visualization/</loc>
-    <lastmod>2017-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,32 +6,18 @@
     <description>Recent content in Statistics on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://balaca.github.io/tags/statistics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Karnataka 2013 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/08/ka-results/</link>
-      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      <title>Recommending Reddit communities with Google BigQuery and the implicit library</title>
+      <link>https://balaca.github.io/2017/11/reddit-reco/</link>
+      <pubDate>Sat, 11 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/08/ka-results/</guid>
-      <description>Most Popular PartiesVote-Share of Popular PartiesNumber of Constituencies Won and LostCandidates who saved their depositsCandidate who doesn’t get more than one-sixth of votes polled in Constituency loses his deposit.
-Histogram of Vote-sharesSmoothened histogram after normalizing for difference in number of contested seats.
-Histogram of Vote-shares in Seats WonSmoothened histogram after normalizing for difference in number of seats won.</description>
-    </item>
-    
-    <item>
-      <title>Uttarakhand 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/06/uk-results/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://balaca.github.io/2017/06/uk-results/</guid>
-      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 200+ Independent candidates contesting across constituencies
-Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
-Note: There were 200+ Independent candidates contesting across constituencies
-Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+      <guid>https://balaca.github.io/2017/11/reddit-reco/</guid>
+      <description>Introduction:My previous post looked into most linked domains, in popular subreddits across the world. In that exploratary data analysis, I took a cluster of subreddits and did a comparative analysis of how (news-) domains linked, vary in their proportions within a cluster of subreddits. To a novice redditor though, it isn’t always clear which subreddits are alike, say, in terms of what they are about (for example, US Politics Wiki-rules), or, in terms of spatial proximity of subreddits, as extrapolated from redditors’ activity.</description>
     </item>
     
     <item>
@@ -45,49 +31,13 @@ Note: There were 200+ Independent candidates contesting across constituencies
     </item>
     
     <item>
-      <title>Manipur 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/manipur-results/</link>
-      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      <title>Twitter and The Social Graph</title>
+      <link>https://balaca.github.io/2017/06/twitter-graph/</link>
+      <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/05/manipur-results/</guid>
-      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
-Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
-Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
-    </item>
-    
-    <item>
-      <title>Goa 2017 Election  - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/goa-results/</link>
-      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://balaca.github.io/2017/05/goa-results/</guid>
-      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were ~ 300 Independent candidates contesting across constituencies
-Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
-Note: There were ~ 300 Independent candidates contesting across constituencies
-Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
-    </item>
-    
-    <item>
-      <title>Punjab 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/punjab-results/</link>
-      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://balaca.github.io/2017/05/punjab-results/</guid>
-      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
-Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
-Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
-    </item>
-    
-    <item>
-      <title>Uttar Pradesh 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/05/up-results/</link>
-      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://balaca.github.io/2017/05/up-results/</guid>
-      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
-Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
-Note: There were 1000+ Independent candidates contesting across constituencies
-Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+      <guid>https://balaca.github.io/2017/06/twitter-graph/</guid>
+      <description>When it comes to discovering or consuming real-time content, Twitter is the place to be; be it sending out ‘Tweets’ real-time, or discovering latest online ‘Trends’ anywhere, or ability to begin a ‘conversation’ with anyone, Twitter does it all. In fact, Twitter Management wrote this in their letter to shareholders last year.
+We’re focused now on what Twitter does best: live.</description>
     </item>
     
     <item>

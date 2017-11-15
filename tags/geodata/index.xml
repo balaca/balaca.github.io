@@ -6,17 +6,17 @@
     <description>Recent content in Geodata on Balachandar Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://balaca.github.io/tags/geodata/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Karnataka 2013 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/08/ka-results/</link>
-      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
+      <link>https://balaca.github.io/2017/05/ka-results/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/08/ka-results/</guid>
+      <guid>https://balaca.github.io/2017/05/ka-results/</guid>
       <description>Most Popular PartiesVote-Share of Popular PartiesNumber of Constituencies Won and LostCandidates who saved their depositsCandidate who doesn’t get more than one-sixth of votes polled in Constituency loses his deposit.
 Histogram of Vote-sharesSmoothened histogram after normalizing for difference in number of contested seats.
 Histogram of Vote-shares in Seats WonSmoothened histogram after normalizing for difference in number of seats won.</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>Uttarakhand 2017 Election - A Data Story</title>
-      <link>https://balaca.github.io/2017/06/uk-results/</link>
-      <pubDate>Fri, 09 Jun 2017 00:00:00 +0000</pubDate>
+      <link>https://balaca.github.io/2017/05/uk-results/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://balaca.github.io/2017/06/uk-results/</guid>
+      <guid>https://balaca.github.io/2017/05/uk-results/</guid>
       <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 200+ Independent candidates contesting across constituencies
 Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
 Note: There were 200+ Independent candidates contesting across constituencies

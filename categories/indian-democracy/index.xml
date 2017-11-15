@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Indian Democracy on Balachandar Blog</title>
+    <link>https://balaca.github.io/categories/indian-democracy/</link>
+    <description>Recent content in Indian Democracy on Balachandar Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://balaca.github.io/categories/indian-democracy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Karnataka 2013 Election - A Data Story</title>
+      <link>https://balaca.github.io/2017/05/ka-results/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/05/ka-results/</guid>
+      <description>Most Popular PartiesVote-Share of Popular PartiesNumber of Constituencies Won and LostCandidates who saved their depositsCandidate who doesn’t get more than one-sixth of votes polled in Constituency loses his deposit.
+Histogram of Vote-sharesSmoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonSmoothened histogram after normalizing for difference in number of seats won.</description>
+    </item>
+    
+    <item>
+      <title>Uttarakhand 2017 Election - A Data Story</title>
+      <link>https://balaca.github.io/2017/05/uk-results/</link>
+      <pubDate>Tue, 30 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/05/uk-results/</guid>
+      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 200+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 200+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+    </item>
+    
+    <item>
+      <title>Manipur 2017 Election - A Data Story</title>
+      <link>https://balaca.github.io/2017/05/manipur-results/</link>
+      <pubDate>Sun, 21 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/05/manipur-results/</guid>
+      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+    </item>
+    
+    <item>
+      <title>Goa 2017 Election  - A Data Story</title>
+      <link>https://balaca.github.io/2017/05/goa-results/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/05/goa-results/</guid>
+      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were ~ 300 Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were ~ 300 Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+    </item>
+    
+    <item>
+      <title>Punjab 2017 Election - A Data Story</title>
+      <link>https://balaca.github.io/2017/05/punjab-results/</link>
+      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/05/punjab-results/</guid>
+      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountWho lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.
+Histogram of Vote-shares in Seats WonAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+    </item>
+    
+    <item>
+      <title>Uttar Pradesh 2017 Election - A Data Story</title>
+      <link>https://balaca.github.io/2017/05/up-results/</link>
+      <pubDate>Thu, 18 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://balaca.github.io/2017/05/up-results/</guid>
+      <description>Most Popular PartiesVote-share and Long-TailWin/Loss CountNote: There were 1000+ Independent candidates contesting across constituencies
+Who lost their deposits?Party which doesn’t get more than one-sixth of votes polled in Constituency loses its deposit.
+Note: There were 1000+ Independent candidates contesting across constituencies
+Histogram of Vote-sharesAfter Normalizing:Smoothened histogram after normalizing for difference in number of contested seats.</description>
+    </item>
+    
+  </channel>
+</rss>
