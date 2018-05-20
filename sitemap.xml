@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://balaca.github.io/2018/05/ka-results/</loc>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://balaca.github.io/2017/11/reddit-reco/</loc>
     <lastmod>2017-11-11T00:00:00+00:00</lastmod>
   </url>
@@ -59,7 +64,7 @@
   
   <url>
     <loc>https://balaca.github.io/</loc>
-    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -106,19 +111,19 @@
   
   <url>
     <loc>https://balaca.github.io/tags/geodata/</loc>
-    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/tags/graphics/</loc>
-    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://balaca.github.io/categories/indian-democracy/</loc>
-    <lastmod>2017-05-30T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -142,7 +147,7 @@
   
   <url>
     <loc>https://balaca.github.io/post/</loc>
-    <lastmod>2017-11-11T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -184,7 +189,7 @@
   
   <url>
     <loc>https://balaca.github.io/tags/visualization/</loc>
-    <lastmod>2017-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
